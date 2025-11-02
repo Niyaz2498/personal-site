@@ -10,19 +10,19 @@ const experiences = [
   {
     logo: '/amazon_logo.jpeg',
     company: 'Amazon',
-    title: 'Software Engineer',
+    title: 'Software Development Engineer in Test - I',
     timeline: 'Nov 2021 - Oct 2023',
   },
   {
     logo: '/zoho_logo.jpeg',
     company: 'Zoho',
-    title: 'Software Engineer',
+    title: 'Member Technical Staff',
     timeline: 'May 2019 - Nov 2021',
   },
   {
     logo: '/zoho_logo.jpeg',
     company: 'Zoho',
-    title: 'Software Engineer',
+    title: 'Project Trainee',
     timeline: 'Dec 2018 - May 2019',
   },
 ];
