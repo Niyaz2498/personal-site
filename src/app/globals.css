@@ -3,27 +3,27 @@
 /* ===== DESIGN TOKENS ===== */
 :root {
   /* Light theme (default) */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8faf9;
-  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-primary: #f2fcf5;
+  --bg-secondary: #e3f5ea;
+  --bg-card: rgba(255, 255, 255, 0.75);
   --bg-card-hover: rgba(255, 255, 255, 0.95);
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a5568;
-  --text-muted: #718096;
+  --text-primary: #064e3b;
+  --text-secondary: #0f766e;
+  --text-muted: #4b5563;
   --accent: #10b981;
   --accent-light: #d1fae5;
-  --accent-dark: #065f46;
-  --border-color: #e2e8f0;
-  --border-accent: rgba(16, 185, 129, 0.3);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 8px 32px rgba(16, 185, 129, 0.12);
+  --accent-dark: #059669;
+  --border-color: #a7f3d0;
+  --border-accent: rgba(16, 185, 129, 0.4);
+  --shadow-card: 0 4px 24px rgba(16, 185, 129, 0.08);
+  --shadow-card-hover: 0 8px 32px rgba(16, 185, 129, 0.15);
   --glow: 0 0 20px rgba(16, 185, 129, 0.15);
   --glow-strong: 0 0 30px rgba(16, 185, 129, 0.25);
-  --timeline-line: #e2e8f0;
+  --timeline-line: #a7f3d0;
   --icon-filter: brightness(0) saturate(100%);
-  --toggle-bg: #f1f5f9;
-  --footer-bg: #0f172a;
-  --footer-text: #e2e8f0;
+  --toggle-bg: #d1fae5;
+  --footer-bg: #021a12;
+  --footer-text: #f8fafc;
 }
 
 [data-theme="dark"] {
@@ -409,7 +409,8 @@ a:hover {
 
 .footer-copy {
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--footer-text);
+  opacity: 0.9;
   margin: 0;
 }
 
@@ -621,6 +622,42 @@ a:hover {
 .kaggle-badge:hover {
   border-color: var(--border-accent);
   color: var(--accent);
+}
+
+/* ===== AWARDS SECTION ===== */
+.awards-grid {
+  display: flex;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.award-card {
+  width: 100%;
+  padding: 1.25rem;
+}
+
+.award-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: var(--bg-primary); 
+}
+
+.award-image {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.award-card:hover .award-image {
+  transform: scale(1.03);
+}
+
+.award-info {
+  text-align: center;
 }
 
 /* ===== THEME TOGGLE ===== */
