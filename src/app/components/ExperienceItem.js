@@ -1,23 +1,24 @@
 import Image from 'next/image';
 
-export default function ExperienceItem({ logo, company, title, timeline, isLast }) {
+export default function ExperienceItem({ logo, company, title, timeline, delay = 0 }) {
   return (
-    <div style={{
-      display: 'flex',
-      gap: '1.5rem',
-      marginBottom: isLast ? '0' : '2rem',
-    }}>
-      <Image
-        src={logo}
-        alt={`${company} logo`}
-        width={56}
-        height={56}
-        style={{ borderRadius: '8px', objectFit: 'contain' }}
-      />
-      <div>
-        <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#047857', margin: '0 0 0.25rem 0' }}>{title}</h3>
-        <p style={{ margin: '0 0 0.25rem 0', color: '#059669' }}>{company}</p>
-        <p style={{ fontSize: '0.9rem', color: '#6b7280', margin: 0 }}>{timeline}</p>
+    <div className={`timeline-item fade-in-up fade-in-up-delay-${delay}`}>
+      <div className="timeline-dot" />
+      <div className="glass-card">
+        <div className="card-header">
+          <Image
+            src={logo}
+            alt={`${company} logo`}
+            width={48}
+            height={48}
+            className="card-logo"
+          />
+          <div className="card-info">
+            <h3 className="card-title">{title}</h3>
+            <p className="card-subtitle">{company}</p>
+            <p className="card-meta">{timeline}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
