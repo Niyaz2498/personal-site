@@ -4,7 +4,7 @@ const educations = [
   {
     logo: '/bits_pilani_wilp_logo.jpeg',
     institution: 'BITS Pilani',
-    degree: 'M.Tech AI/ML',
+    degree: 'M.Tech AI/ML - WILP',
     timeline: 'Oct 2025 — Present',
   },
   {

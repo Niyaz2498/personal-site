@@ -27,9 +27,12 @@ export default function Connect() {
       </div>
 
       <div className="footer-divider" />
-      <p className="footer-copy">
-        © {new Date().getFullYear()} Mohamed Niyaz. All rights reserved.
-      </p>
+      <div className="footer-copy">
+        <p>© {new Date().getFullYear()} Mohamed Niyaz. All rights reserved.</p>
+        <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#475569' }}>
+          Made with help from <strong>Antigravity</strong>. Thanks to Google for the free plan! 🚀
+        </p>
+      </div>
     </footer>
   );
 }

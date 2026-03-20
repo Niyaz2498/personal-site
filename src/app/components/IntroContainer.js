@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 const phrases = [
-  'Crafting Scalable Systems',
   'Passionate about AI & ML',
   'Solving Complex Problems',
   'Building Quality Software',
@@ -64,10 +63,10 @@ export default function Hero() {
         <div className="hero-text">
           <p className="hero-greeting">Hey there! 👋</p>
           <h1 className="hero-name">
-            I&apos;m <span className="accent">Mohamed Niyaz</span>
+            I&apos;m <span className="accent">Mohamed Niyaz M</span>
           </h1>
           <p className="hero-tagline">
-            Senior Engineer at <strong>Presidio</strong> · M.Tech AI/ML at{' '}
+            Senior Engineer at <strong>Presidio</strong> · M.Tech AI/ML - WILP at{' '}
             <strong>BITS Pilani</strong>
           </p>
 

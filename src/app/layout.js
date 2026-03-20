@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="dark">
       <head>
         {/* Load saved theme before paint to avoid flash */}
         <script
@@ -25,8 +25,8 @@ export default function RootLayout({ children }) {
               (function() {
                 try {
                   var saved = localStorage.getItem('theme');
-                  if (saved === 'dark') {
-                    document.documentElement.setAttribute('data-theme', 'dark');
+                  if (saved === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
                   }
                 } catch(e) {}
               })();
