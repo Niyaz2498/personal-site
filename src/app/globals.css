@@ -815,8 +815,8 @@ a:hover {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .hero {
-    padding: 4rem 1.5rem 2rem;
-    min-height: auto;
+    padding: 6rem 1.5rem 4rem;
+    min-height: 100vh;
   }
 
   .hero-content {
@@ -836,6 +836,10 @@ a:hover {
 
   .hero-socials {
     justify-content: center;
+  }
+
+  .scroll-indicator {
+    display: none; /* Mobile users naturally scroll, hide to prevent overlay issues */
   }
 
   .section {
@@ -861,10 +865,39 @@ a:hover {
   .education-grid {
     grid-template-columns: 1fr;
   }
+  
+  .kaggle-profile-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.6rem;
+  }
+  
+  .kaggle-bio {
+    text-align: center;
+  }
+  
+  .kaggle-profile-link {
+    display: block;
+    text-align: center;
+  }
+  
+  .kaggle-comp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 
   .footer-links {
     flex-direction: column;
     align-items: center;
+  }
+  
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 }
 
@@ -878,6 +911,10 @@ a:hover {
   }
 
   .glass-card {
-    padding: 1.25rem;
+    padding: 1.15rem;
+  }
+  
+  .rank-number {
+    font-size: 1.25rem;
   }
 }
