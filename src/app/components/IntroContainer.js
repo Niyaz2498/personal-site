@@ -92,6 +92,16 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <a href="#experience" className="scroll-indicator" aria-label="Scroll down">
+        <div className="mouse">
+          <div className="wheel"></div>
+        </div>
+        <div className="scroll-arrows">
+          <span className="arrow"></span>
+          <span className="arrow"></span>
+        </div>
+      </a>
     </section>
   );
 }
