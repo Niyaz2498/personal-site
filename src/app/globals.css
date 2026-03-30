@@ -296,14 +296,31 @@ a:hover {
 }
 
 @keyframes scrollWheel {
-  0% { transform: translate(-50%, 0); opacity: 1; }
-  100% { transform: translate(-50%, 12px); opacity: 0; }
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, 12px);
+    opacity: 0;
+  }
 }
 
 @keyframes scrollArrow {
-  0% { opacity: 0; transform: rotate(45deg) translate(-3px, -3px); }
-  50% { opacity: 1; }
-  100% { opacity: 0; transform: rotate(45deg) translate(3px, 3px); }
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-3px, -3px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(3px, 3px);
+  }
 }
 
 /* ===== EXPERIENCE TIMELINE ===== */
@@ -632,11 +649,62 @@ a:hover {
   color: var(--text-muted);
 }
 
+.kaggle-comp-name-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+
+.kaggle-comp-name-link:hover {
+  opacity: 0.8;
+}
+
 .kaggle-comp-name {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
   margin: 0 0 0.6rem 0;
+}
+
+.kaggle-comp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.kaggle-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  text-transform: capitalize;
+  border: 1px solid transparent;
+}
+
+.kaggle-tag.tag-team,
+.kaggle-tag.tag-individual {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-secondary);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+.kaggle-tag.tag-playground {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+.kaggle-tag.tag-community-contest {
+  background: rgba(234, 179, 8, 0.12);
+  color: #d97706;
+  /* deeper gold for legibility in light mode */
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+[data-theme="dark"] .kaggle-tag.tag-community-contest {
+  color: #fcd34d;
 }
 
 .kaggle-rank {
@@ -664,6 +732,21 @@ a:hover {
   padding: 0.15rem 0.55rem;
   border-radius: 12px;
   margin-left: 0.25rem;
+}
+
+.rank-medal {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-left: 0.35rem;
+  background: rgba(148, 163, 184, 0.15);
+  padding: 0.15rem 0.6rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  box-shadow: 0 0 10px rgba(148, 163, 184, 0.4);
 }
 
 .kaggle-comp-active-note {
@@ -717,7 +800,7 @@ a:hover {
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 1rem;
-  background: var(--bg-primary); 
+  background: var(--bg-primary);
 }
 
 .award-image {
@@ -839,7 +922,8 @@ a:hover {
   }
 
   .scroll-indicator {
-    display: none; /* Mobile users naturally scroll, hide to prevent overlay issues */
+    display: none;
+    /* Mobile users naturally scroll, hide to prevent overlay issues */
   }
 
   .section {
@@ -865,22 +949,22 @@ a:hover {
   .education-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .kaggle-profile-top {
     flex-direction: column;
     text-align: center;
     gap: 0.6rem;
   }
-  
+
   .kaggle-bio {
     text-align: center;
   }
-  
+
   .kaggle-profile-link {
     display: block;
     text-align: center;
   }
-  
+
   .kaggle-comp-header {
     flex-direction: column;
     align-items: flex-start;
@@ -891,7 +975,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .theme-toggle {
     top: 1rem;
     right: 1rem;
@@ -913,7 +997,7 @@ a:hover {
   .glass-card {
     padding: 1.15rem;
   }
-  
+
   .rank-number {
     font-size: 1.25rem;
   }

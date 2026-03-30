@@ -4,9 +4,11 @@ const competitions = [
   {
     name: 'AI in Emergency Medicine — Türkiye',
     type: 'Competition',
-    status: 'Active',
-    rank: null,
+    status: 'Completed',
+    rank: 2,
     outOf: null,
+    link: 'https://www.kaggle.com/competitions/ai-emergency-medicine-turkiye/leaderboard',
+    tags: ['community contest', 'team'],
   },
   {
     name: 'Predicting Student Test Scores',
@@ -14,6 +16,7 @@ const competitions = [
     status: 'Completed',
     rank: 1131,
     outOf: 4317,
+    tags: ['playground', 'individual'],
   },
   {
     name: 'Predicting Heart Disease',
@@ -21,6 +24,7 @@ const competitions = [
     status: 'Completed',
     rank: 3705,
     outOf: 4370,
+    tags: ['playground', 'individual'],
   },
 ];
 
@@ -79,20 +83,40 @@ export default function Kaggle() {
               </span>
               <span className="kaggle-comp-type">{comp.type}</span>
             </div>
-            <p className="kaggle-comp-name">{comp.name}</p>
-            {comp.rank && comp.outOf ? (
-              comp.rank / comp.outOf <= 0.5 ? (
-                <div className="kaggle-rank">
-                  <span className="rank-number">#{comp.rank}</span>
-                  <span className="rank-of">/ {comp.outOf.toLocaleString()}</span>
-                  <span className="rank-pct">
-                    Top {Math.ceil((comp.rank / comp.outOf) * 100)}%
-                  </span>
-                </div>
-              ) : null
+            {comp.link ? (
+              <a href={comp.link} target="_blank" rel="noopener noreferrer" className="kaggle-comp-name-link">
+                <p className="kaggle-comp-name">{comp.name} ↗</p>
+              </a>
             ) : (
-              <p className="kaggle-comp-active-note">⏳ In progress — ends soon</p>
+              <p className="kaggle-comp-name">{comp.name}</p>
             )}
+            
+            {comp.tags && (
+              <div className="kaggle-comp-tags">
+                {comp.tags.map((tag, idx) => (
+                  <span key={idx} className={`kaggle-tag tag-${tag.replace(/\s+/g, '-')}`}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {comp.rank !== null ? (
+              <div className="kaggle-rank">
+                <span className="rank-number">#{comp.rank}</span>
+                {comp.outOf && (
+                  <>
+                    <span className="rank-of">/ {comp.outOf.toLocaleString()}</span>
+                    <span className="rank-pct">
+                      Top {Math.ceil((comp.rank / comp.outOf) * 100)}%
+                    </span>
+                  </>
+                )}
+                {comp.rank === 2 && <span className="rank-medal">🥈 2nd Place</span>}
+              </div>
+            ) : comp.status === 'Active' ? (
+              <p className="kaggle-comp-active-note">⏳ In progress — ends soon</p>
+            ) : null}
           </div>
         ))}
       </div>
