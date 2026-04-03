@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import FadeIn from './FadeIn';
+import GlowCard from './GlowCard';
 
 const competitions = [
   {
@@ -22,113 +23,142 @@ const competitions = [
     name: 'Predicting Heart Disease',
     type: 'Playground Series S6E2',
     status: 'Completed',
-    rank: 3705,
-    outOf: 4370,
+    rank: null,
+    outOf: null,
     tags: ['playground', 'individual'],
   },
 ];
 
 const badges = [
-  { label: 'Community Competitor', emoji: '🏆' },
-  { label: 'Playground Competitor', emoji: '🎮' },
-  { label: 'Python Coder', emoji: '🐍' },
-  { label: 'Code Uploader', emoji: '📤' },
-  { label: 'Dataset Creator', emoji: '📊' },
-  { label: 'Community Member', emoji: '🤝' },
-  { label: '7-Day Login Streak', emoji: '🔥' },
+  { label: 'Community Competitor' },
+  { label: 'Playground Competitor' },
+  { label: 'Python Coder' },
+  { label: 'Code Uploader' },
+  { label: 'Dataset Creator' },
+  { label: 'Community Member' },
+  { label: '7-Day Login Streak' },
 ];
 
 export default function Kaggle() {
   return (
-    <section className="section kaggle-section" id="kaggle">
-      <h2 className="section-title">Kaggle</h2>
+    <section className="layout-container py-16 md:py-24" id="kaggle">
+      <FadeIn>
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[var(--text-primary)] mb-10 md:mb-16">
+          Kaggle
+        </h2>
+      </FadeIn>
 
-      {/* Profile Card */}
-      <div className="kaggle-profile-card glass-card">
-        <div className="kaggle-profile-top">
-          <div className="kaggle-avatar">
-            <Image src="/kaggle-logo.svg" alt="Kaggle" width={32} height={32} className="kaggle-logo-icon" />
-          </div>
-          <div className="kaggle-identity">
-            <h3 className="kaggle-name">Niyaz</h3>
-            <span className="kaggle-username">@niyaz2498</span>
-          </div>
-          <div className="kaggle-tier-badge">
-            <span className="tier-dot" />
-            Contributor
-          </div>
-        </div>
-        <p className="kaggle-bio">
-          &ldquo;Exploring Machine Learning.&rdquo; — Senior Engineer at Presidio,
-          pursuing M.Tech AI/ML at BITS Pilani.
-        </p>
-        <a
-          href="https://www.kaggle.com/niyaz2498"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="kaggle-profile-link"
-        >
-          View Full Profile →
-        </a>
-      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
+        
+        {/* Left Column: Profile & Badges */}
+        <div className="lg:col-span-1 flex flex-col gap-8">
+          <FadeIn delay={150}>
+            <GlowCard className="p-8 rounded-3xl shadow-sm hover:shadow-md">
+              <h3 className="text-2xl font-bold mb-1 text-[var(--text-primary)]">Niyaz</h3>
+              <a href="https://www.kaggle.com/niyaz2498" target="_blank" rel="noreferrer" className="text-[var(--text-secondary)] font-bold mb-6 inline-block hover:text-[var(--accent)] transition-colors">@niyaz2498 ↗</a>
+              <p className="text-[var(--text-primary)] font-medium leading-relaxed mb-6 italic opacity-80">
+                &ldquo;Exploring Machine Learning.&rdquo;
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full text-sm font-bold border border-[var(--border-color)] shadow-sm text-white">
+                <span className="w-2.5 h-2.5 rounded-full bg-[var(--text-secondary)] animate-pulse shadow-[0_0_8px_var(--text-secondary)]"></span>
+                Contributor Tier
+              </div>
+            </GlowCard>
+          </FadeIn>
 
-      {/* Competitions */}
-      <h3 className="kaggle-sub-heading">Competitions</h3>
-      <div className="kaggle-competitions">
-        {competitions.map((comp, i) => (
-          <div key={i} className="glass-card kaggle-comp-card">
-            <div className="kaggle-comp-header">
-              <span className={`kaggle-status-pill ${comp.status === 'Active' ? 'active' : 'completed'}`}>
-                {comp.status}
-              </span>
-              <span className="kaggle-comp-type">{comp.type}</span>
-            </div>
-            {comp.link ? (
-              <a href={comp.link} target="_blank" rel="noopener noreferrer" className="kaggle-comp-name-link">
-                <p className="kaggle-comp-name">{comp.name} ↗</p>
-              </a>
-            ) : (
-              <p className="kaggle-comp-name">{comp.name}</p>
-            )}
-            
-            {comp.tags && (
-              <div className="kaggle-comp-tags">
-                {comp.tags.map((tag, idx) => (
-                  <span key={idx} className={`kaggle-tag tag-${tag.replace(/\s+/g, '-')}`}>
-                    {tag}
+          <FadeIn delay={300}>
+            <div>
+              <h3 className="text-xl font-bold mb-6 text-[var(--text-primary)] relative inline-block">
+                Badges Earned
+                <span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-[var(--accent-light)] rounded-full"></span>
+              </h3>
+              <div className="flex flex-wrap gap-2.5">
+                {badges.map((badge, i) => (
+                  <span key={i} className="px-4 py-1.5 rounded-xl text-sm font-semibold bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-muted)] shadow-sm hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-colors cursor-default">
+                    {badge.label}
                   </span>
                 ))}
               </div>
-            )}
+            </div>
+          </FadeIn>
+        </div>
 
-            {comp.rank !== null ? (
-              <div className="kaggle-rank">
-                <span className="rank-number">#{comp.rank}</span>
-                {comp.outOf && (
-                  <>
-                    <span className="rank-of">/ {comp.outOf.toLocaleString()}</span>
-                    <span className="rank-pct">
-                      Top {Math.ceil((comp.rank / comp.outOf) * 100)}%
+        {/* Right Column: Competitions */}
+        <div className="lg:col-span-2 flex flex-col gap-6">
+          {competitions.map((comp, i) => (
+            <FadeIn key={i} delay={200 + (i * 100)}>
+              <GlowCard className="group p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-lg transform hover:-translate-y-1">
+                
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-3">
+                  <h4 className="text-xl md:text-2xl font-bold max-w-sm leading-tight text-[var(--text-primary)]">
+                    {comp.link ? (
+                      <a href={comp.link} target="_blank" rel="noreferrer" className="group-hover:text-[var(--text-secondary)] transition-colors inline-block">
+                        {comp.name} 
+                        <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 ml-1 opacity-0 group-hover:opacity-100">↗</span>
+                      </a>
+                    ) : (
+                      comp.name
+                    )}
+                  </h4>
+                  {comp.status === 'Completed' ? (
+                    <span className="text-sm font-bold px-3 py-1 bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-muted)] rounded-full shrink-0">
+                      Completed
                     </span>
-                  </>
-                )}
-                {comp.rank === 2 && <span className="rank-medal">🥈 2nd Place</span>}
-              </div>
-            ) : comp.status === 'Active' ? (
-              <p className="kaggle-comp-active-note">⏳ In progress — ends soon</p>
-            ) : null}
-          </div>
-        ))}
-      </div>
+                  ) : (
+                    <span className="text-sm font-bold px-3 py-1 bg-[var(--accent-light)]/10 text-[var(--accent-light)] border border-[var(--accent-light)]/20 rounded-full shrink-0">
+                      Active
+                    </span>
+                  )}
+                </div>
+                
+                <div className="text-[var(--text-secondary)] mb-5 font-bold text-sm tracking-wide uppercase">
+                  {comp.type}
+                </div>
 
-      {/* Badges */}
-      <h3 className="kaggle-sub-heading">Badges Earned</h3>
-      <div className="kaggle-badges">
-        {badges.map((badge, i) => (
-          <span key={i} className="kaggle-badge">
-            {badge.emoji} {badge.label}
-          </span>
-        ))}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {comp.tags.map((tag, idx) => (
+                    <span key={idx} className="text-xs font-bold px-3 py-1 rounded-full bg-[var(--bg-primary)] border border-[var(--border-color)]/50 capitalize text-[var(--text-muted)]">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {comp.rank !== null && (
+                  <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[var(--border-color)] mt-auto">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl font-extrabold tracking-tighter text-[var(--text-primary)]">#{comp.rank}</span>
+                      {comp.outOf && (
+                        <span className="text-[var(--text-muted)] font-medium text-lg">/ {comp.outOf.toLocaleString()}</span>
+                      )}
+                    </div>
+                    
+                    {comp.outOf && (
+                      <span className="font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] px-3 py-1.5 rounded-lg text-sm ml-auto sm:ml-4">
+                        Top {Math.ceil((comp.rank / comp.outOf) * 100)}%
+                      </span>
+                    )}
+                    {comp.rank === 2 && (
+                      <div className="relative ml-auto sm:ml-auto group/medal cursor-default mt-2 sm:mt-0">
+                        {/* Silvery white pulsating glow behind badge */}
+                        <div className="absolute inset-0 bg-white/60 blur-md rounded-lg animate-[pulse_2s_ease-in-out_infinite]"></div>
+                        
+                        {/* Simple Silver Badge */}
+                        <span className="relative z-10 font-bold text-slate-800 bg-gradient-to-br from-slate-100 to-slate-300 border border-slate-300 px-4 py-1.5 rounded-lg text-sm shadow-sm flex items-center gap-2">
+                          <svg className="w-4 h-4 text-slate-600 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 15.25c-1.79 0-3.25-1.46-3.25-3.25s1.46-3.25 3.25-3.25 3.25 1.46 3.25 3.25-1.46 3.25-3.25 3.25zm0-5A1.75 1.75 0 1012 13.75 1.75 1.75 0 0012 10.25z"/>
+                            <path d="M15.5 8.75h-7A1.75 1.75 0 016.75 7V3.5A1.75 1.75 0 018.5 1.75h7A1.75 1.75 0 0117.25 3.5V7a1.75 1.75 0 01-1.75 1.75zM8.5 3.25v3.5h7v-3.5h-7z"/>
+                            <path d="M12 22.25a7.25 7.25 0 117.25-7.25A7.26 7.26 0 0112 22.25zm0-13a5.75 5.75 0 105.75 5.75A5.76 5.76 0 0012 9.25z"/>
+                          </svg>
+                          2nd Place
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </GlowCard>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,107 +1,37 @@
-'use client';
+import FadeIn from './FadeIn';
 
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-
-const phrases = [
-  'Passionate about AI & ML',
-  'Solving Complex Problems',
-  'Building Quality Software',
-];
-
-const socialLinks = [
-  { href: 'https://github.com/Niyaz2498', icon: '/github-mark-white.svg', label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/mohamed-niyaz-m/', icon: '/linkedin-logo.svg', label: 'LinkedIn' },
-  { href: 'mailto:mohamedniyazm7@gmail.com', icon: '/gmail-logo.svg', label: 'Email' },
-];
-
-export default function Hero() {
-  const [displayText, setDisplayText] = useState('');
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentPhrase = phrases[phraseIndex];
-
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        setDisplayText(currentPhrase.slice(0, charIndex + 1));
-        setCharIndex(charIndex + 1);
-        if (charIndex + 1 === currentPhrase.length) {
-          setTimeout(() => setIsDeleting(true), 1500);
-        }
-      } else {
-        setDisplayText(currentPhrase.slice(0, charIndex - 1));
-        setCharIndex(charIndex - 1);
-        if (charIndex - 1 === 0) {
-          setIsDeleting(false);
-          setPhraseIndex((phraseIndex + 1) % phrases.length);
-        }
-      }
-    }, isDeleting ? 40 : 80);
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, phraseIndex]);
-
+export default function IntroContainer() {
   return (
-    <section className="hero" id="hero">
-      <div className="hero-content">
-        <div className="hero-photo-wrapper">
-          <div className="hero-photo-ring">
-            <Image
-              src="/niyaz.jpeg"
-              alt="Mohamed Niyaz"
-              width={220}
-              height={220}
-              className="hero-photo"
-              priority
-            />
-          </div>
-        </div>
-
-        <div className="hero-text">
-          <p className="hero-greeting">Hey there! 👋</p>
-          <h1 className="hero-name">
-            I&apos;m <span className="accent">Mohamed Niyaz M</span>
-          </h1>
-          <p className="hero-tagline">
-            Senior Engineer at <strong>Presidio</strong> · M.Tech AI/ML - WILP at{' '}
-            <strong>BITS Pilani</strong>
+    <section className="layout-container min-h-screen flex flex-col justify-center py-16" id="hero">
+      <FadeIn>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="h-[2px] w-12 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)]"></div>
+          <p className="text-xl md:text-2xl font-medium text-[var(--text-secondary)] tracking-wide uppercase text-sm">
+            Hello, I am
           </p>
-
-          <div className="typing-wrapper">
-            <span>{displayText}</span>
-            <span className="typing-cursor" />
-          </div>
-
-          <div className="hero-socials">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hero-social-btn"
-                aria-label={link.label}
-                title={link.label}
-              >
-                <Image src={link.icon} alt={link.label} width={20} height={20} />
-              </a>
-            ))}
-          </div>
         </div>
-      </div>
+      </FadeIn>
+      
+      <FadeIn delay={150}>
+        <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter text-[var(--text-primary)] mb-4 leading-tight">
+          Mohamed Niyaz.
+        </h1>
+      </FadeIn>
 
-      <a href="#experience" className="scroll-indicator" aria-label="Scroll down">
-        <div className="mouse">
-          <div className="wheel"></div>
+      <FadeIn delay={300}>
+        <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight mb-8 max-w-4xl leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-secondary)] to-[var(--accent-light)] drop-shadow-sm">
+          Intelligent software systems.
+        </h2>
+      </FadeIn>
+
+      <FadeIn delay={450}>
+        <div className="border-l-4 border-[var(--accent-light)] pl-6 mt-4">
+          <p className="text-lg md:text-2xl text-[var(--text-primary)] max-w-2xl leading-relaxed font-medium">
+            Senior Engineer at <span className="font-bold border-b-2 border-[var(--accent-light)] text-[var(--text-primary)]">Presidio</span> blending machine learning with robust engineering. 
+            Currently pursuing my M.Tech in AI/ML from <span className="font-bold border-b-2 border-[var(--accent-light)] text-[var(--text-primary)]">BITS Pilani</span>.
+          </p>
         </div>
-        <div className="scroll-arrows">
-          <span className="arrow"></span>
-          <span className="arrow"></span>
-        </div>
-      </a>
+      </FadeIn>
     </section>
   );
 }
