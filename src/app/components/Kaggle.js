@@ -100,14 +100,23 @@ export default function Kaggle() {
                       comp.name
                     )}
                   </h4>
-                  {comp.status === 'Completed' ? (
-                    <span className="text-sm font-bold px-3 py-1 bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-muted)] rounded-full shrink-0">
-                      Completed
-                    </span>
-                  ) : (
-                    <span className="text-sm font-bold px-3 py-1 bg-[var(--accent-light)]/10 text-[var(--accent-light)] border border-[var(--accent-light)]/20 rounded-full shrink-0">
-                      Active
-                    </span>
+                  
+                  {/* 2nd Place Badge in top right */}
+                  {comp.rank === 2 && (
+                    <div className="relative shrink-0 group/medal cursor-default mt-1">
+                      {/* Pulsating glow */}
+                      <div className="absolute inset-0 bg-slate-300/70 blur-[8px] rounded-lg animate-[pulse_2s_ease-in-out_infinite]"></div>
+                      
+                      {/* The Badge Itself */}
+                      <span className="relative z-10 font-bold text-slate-800 bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-300/50 px-4 py-1.5 rounded-[9px] text-sm shadow-sm flex items-center gap-2">
+                        <svg className="w-4 h-4 text-slate-600 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 15.25c-1.79 0-3.25-1.46-3.25-3.25s1.46-3.25 3.25-3.25 3.25 1.46 3.25 3.25-1.46 3.25-3.25 3.25zm0-5A1.75 1.75 0 1012 13.75 1.75 1.75 0 0012 10.25z"/>
+                          <path d="M15.5 8.75h-7A1.75 1.75 0 016.75 7V3.5A1.75 1.75 0 018.5 1.75h7A1.75 1.75 0 0117.25 3.5V7a1.75 1.75 0 01-1.75 1.75zM8.5 3.25v3.5h7v-3.5h-7z"/>
+                          <path d="M12 22.25a7.25 7.25 0 117.25-7.25A7.26 7.26 0 0112 22.25zm0-13a5.75 5.75 0 105.75 5.75A5.76 5.76 0 0012 9.25z"/>
+                        </svg>
+                        2nd Place
+                      </span>
+                    </div>
                   )}
                 </div>
                 
@@ -123,38 +132,41 @@ export default function Kaggle() {
                   ))}
                 </div>
 
-                {comp.rank !== null && (
-                  <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[var(--border-color)] mt-auto">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-extrabold tracking-tighter text-[var(--text-primary)]">#{comp.rank}</span>
-                      {comp.outOf && (
-                        <span className="text-[var(--text-muted)] font-medium text-lg">/ {comp.outOf.toLocaleString()}</span>
-                      )}
-                    </div>
-                    
-                    {comp.outOf && (
-                      <span className="font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] px-3 py-1.5 rounded-lg text-sm ml-auto sm:ml-4">
-                        Top {Math.ceil((comp.rank / comp.outOf) * 100)}%
-                      </span>
-                    )}
-                    {comp.rank === 2 && (
-                      <div className="relative ml-auto sm:ml-auto group/medal cursor-default mt-2 sm:mt-0">
-                        {/* Silvery white pulsating glow behind badge */}
-                        <div className="absolute inset-0 bg-white/60 blur-md rounded-lg animate-[pulse_2s_ease-in-out_infinite]"></div>
+                {/* Bottom Row structure combining Rank + Status */}
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[var(--border-color)] mt-auto w-full">
+                  {/* Rank Left Side */}
+                  <div className="flex flex-wrap items-center gap-4">
+                    {comp.rank !== null && (
+                      <>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-4xl font-extrabold tracking-tighter text-[var(--text-primary)]">#{comp.rank}</span>
+                          {comp.outOf && (
+                            <span className="text-[var(--text-muted)] font-medium text-lg">/ {comp.outOf.toLocaleString()}</span>
+                          )}
+                        </div>
                         
-                        {/* Simple Silver Badge */}
-                        <span className="relative z-10 font-bold text-slate-800 bg-gradient-to-br from-slate-100 to-slate-300 border border-slate-300 px-4 py-1.5 rounded-lg text-sm shadow-sm flex items-center gap-2">
-                          <svg className="w-4 h-4 text-slate-600 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 15.25c-1.79 0-3.25-1.46-3.25-3.25s1.46-3.25 3.25-3.25 3.25 1.46 3.25 3.25-1.46 3.25-3.25 3.25zm0-5A1.75 1.75 0 1012 13.75 1.75 1.75 0 0012 10.25z"/>
-                            <path d="M15.5 8.75h-7A1.75 1.75 0 016.75 7V3.5A1.75 1.75 0 018.5 1.75h7A1.75 1.75 0 0117.25 3.5V7a1.75 1.75 0 01-1.75 1.75zM8.5 3.25v3.5h7v-3.5h-7z"/>
-                            <path d="M12 22.25a7.25 7.25 0 117.25-7.25A7.26 7.26 0 0112 22.25zm0-13a5.75 5.75 0 105.75 5.75A5.76 5.76 0 0012 9.25z"/>
-                          </svg>
-                          2nd Place
-                        </span>
-                      </div>
+                        {comp.outOf && (
+                          <span className="font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] px-3 py-1.5 rounded-lg text-sm">
+                            Top {Math.ceil((comp.rank / comp.outOf) * 100)}%
+                          </span>
+                        )}
+                      </>
                     )}
                   </div>
-                )}
+                  
+                  {/* Status Right Side */}
+                  <div>
+                    {comp.status === 'Completed' ? (
+                      <span className="text-sm font-bold px-3 py-1 bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-muted)] rounded-full shrink-0">
+                        Completed
+                      </span>
+                    ) : (
+                      <span className="text-sm font-bold px-3 py-1 bg-[var(--accent-light)]/10 text-[var(--accent-light)] border border-[var(--accent-light)]/20 rounded-full shrink-0">
+                        Active
+                      </span>
+                    )}
+                  </div>
+                </div>
               </GlowCard>
             </FadeIn>
           ))}

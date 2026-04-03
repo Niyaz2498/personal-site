@@ -36,9 +36,6 @@ export default function Experience() {
         {experiences.map((exp, index) => (
           <FadeIn key={index} delay={index * 150}>
             <div className="group relative border-l-[3px] border-[var(--border-color)] pl-6 hover:border-[var(--text-secondary)] transition-colors duration-300">
-              {/* Subtle hover pulse indicator */}
-              <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_10px_var(--accent-light)]"></div>
-              
               <h3 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--text-secondary)] transition-colors duration-300">
                 {exp.title}
               </h3>
