@@ -9,7 +9,7 @@ const educations = [
   },
   {
     institution: 'Velammal College of Engineering and Technology',
-    degree: 'B.E EEE',
+    degree: 'B.E - EEE',
     timeline: '2015 — 2019',
   },
 ];
