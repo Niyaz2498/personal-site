@@ -3,6 +3,15 @@ import GlowCard from './GlowCard';
 
 const competitions = [
   {
+    name: 'NVIDIA Nemotron Model Reasoning Challenge',
+    type: 'Competition',
+    status: 'Active',
+    rank: null,
+    outOf: null,
+    link: 'https://www.kaggle.com/competitions/nvidia-nemotron-model-reasoning',
+    tags: ['active', 'model reasoning'],
+  },
+  {
     name: 'AI in Emergency Medicine — Türkiye',
     type: 'Competition',
     status: 'Completed',
@@ -30,13 +39,17 @@ const competitions = [
 ];
 
 const badges = [
-  { label: 'Community Competitor' },
-  { label: 'Playground Competitor' },
-  { label: 'Python Coder' },
-  { label: 'Code Uploader' },
-  { label: 'Dataset Creator' },
-  { label: 'Community Member' },
-  { label: '7-Day Login Streak' },
+  { label: 'Competitor', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2Fb05e17f63f2eead904a1f04d05bb51a6%2FBadge.svg?generation=1727458564383731&alt=media' },
+  { label: 'Community Competitor', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2F06808571894d065a64243d6ba468be2b%2FBadge-4.svg?generation=1727462524641424&alt=media' },
+  { label: 'Playground Competitor', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2F45be693e46c3d59a48e65f903aad246b%2FBadge-5.svg?generation=1727462562515977&alt=media' },
+  { label: 'Python Coder', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2F09e1f99bdf3222934ad7769409ec3f6d%2FBadge-26.svg?generation=1727468059623106&alt=media' },
+  { label: 'Code Uploader', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2F1e4546d427340e1495b9ee02261e2dc6%2FBadge-34.svg?generation=1727468126171650&alt=media' },
+  { label: 'Notebook Modeler', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2F2df508502fba7fc8937f3847e46b8ec4%2FBadge-29.svg?generation=1727468233931525&alt=media' },
+  { label: 'Dataset Creator', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2F28e0e70842ce6972f4d68f5b6ecd549a%2FBadge-12.svg?generation=1727462988946700&alt=media' },
+  { label: 'Competition Modeler', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2Feb028e2f7e6b3e2bef2b3682f6919224%2FBadge-25.svg?generation=1727468044501552&alt=media' },
+  { label: 'Community Member', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F10489106%2F8235ef48b7e37d36d6e081d112f303de%2FBadge-62.svg?generation=1758039755687969&alt=media' },
+  { label: 'Stylish', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2F67d3960ab66dd17a3b6b1546ca8c3acb%2FBadge-40.svg?generation=1727468269875327&alt=media' },
+  { label: 'Bookmarker', icon: 'https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F1488634%2Fe06d05ebef3630403946b71cbdc11665%2FBadge-42.svg?generation=1727468309615075&alt=media' }
 ];
 
 export default function Kaggle() {
@@ -72,11 +85,18 @@ export default function Kaggle() {
                 Badges Earned
                 <span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-[var(--accent-light)] rounded-full"></span>
               </h3>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-3">
                 {badges.map((badge, i) => (
-                  <span key={i} className="px-4 py-1.5 rounded-xl text-sm font-semibold bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-muted)] shadow-sm hover:text-[var(--text-primary)] hover:border-[var(--text-secondary)] transition-colors cursor-default">
-                    {badge.label}
-                  </span>
+                  <div key={i} className="group relative flex items-center justify-center p-1.5 bg-white/5 border border-[var(--border-color)] rounded-xl hover:bg-white/10 hover:border-[var(--accent-light)] transition-all shadow-sm cursor-pointer w-12 h-12">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={badge.icon} alt={badge.label} className="w-8 h-8 object-contain drop-shadow-md" loading="lazy" />
+                    
+                    {/* Tooltip positioned nicely above */}
+                    <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 bg-black text-white text-xs font-bold px-3 py-1.5 rounded shadow-2xl whitespace-nowrap pointer-events-none z-[100]">
+                      {badge.label}
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-black transform rotate-45"></div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
