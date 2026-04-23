@@ -14,6 +14,9 @@ const outfit = Outfit({
 export const metadata = {
   title: "Mohamed Niyaz | Portfolio",
   description: "Personal portfolio of Mohamed Niyaz — Senior Engineer at Presidio, M.Tech AI/ML at BITS Pilani.",
+  icons: {
+    icon: '/niyaz-logo-icon.svg',
+  },
 };
 
 export default function RootLayout({ children }) {
