@@ -7,7 +7,7 @@ import Connect from './components/Connect';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] flex flex-col gap-24 md:gap-40 pb-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] flex flex-col gap-12 md:gap-40 pb-16 md:pb-24">
       <Hero />
       <Experience />
       <Education />

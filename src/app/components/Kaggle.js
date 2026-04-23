@@ -110,7 +110,7 @@ export default function Kaggle() {
               <GlowCard className="group p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-lg transform hover:-translate-y-1">
                 
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-3">
-                  <h4 className="text-xl md:text-2xl font-bold max-w-sm leading-tight text-[var(--text-primary)]">
+                  <h4 className="text-lg md:text-2xl font-bold leading-tight text-[var(--text-primary)]">
                     {comp.link ? (
                       <a href={comp.link} target="_blank" rel="noreferrer" className="group-hover:text-[var(--text-secondary)] transition-colors inline-block">
                         {comp.name} 
@@ -159,7 +159,7 @@ export default function Kaggle() {
                     {comp.rank !== null && (
                       <>
                         <div className="flex items-baseline gap-1">
-                          <span className="text-4xl font-extrabold tracking-tighter text-[var(--text-primary)]">#{comp.rank}</span>
+                          <span className="text-3xl md:text-4xl font-extrabold tracking-tighter text-[var(--text-primary)]">#{comp.rank}</span>
                           {comp.outOf && (
                             <span className="text-[var(--text-muted)] font-medium text-lg">/ {comp.outOf.toLocaleString()}</span>
                           )}

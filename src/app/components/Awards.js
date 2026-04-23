@@ -16,7 +16,7 @@ export default function Awards() {
       </FadeIn>
 
       <FadeIn delay={150}>
-        <div className="group flex flex-col md:flex-row gap-8 items-center p-8 md:p-12 rounded-3xl bg-[var(--bg-secondary)] transition-colors duration-300">
+        <div className="group flex flex-col md:flex-row gap-6 md:gap-8 items-center p-6 md:p-12 rounded-3xl bg-[var(--bg-secondary)] transition-colors duration-300">
           <div className="flex-1">
             <h3 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-4">Spot Award</h3>
             <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
@@ -24,7 +24,7 @@ export default function Awards() {
             </p>
           </div>
           <div
-            className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden border border-[var(--border-color)] aspect-video md:aspect-square lg:aspect-[4/3] relative shadow-md cursor-pointer"
+            className="w-full md:w-1/3 shrink-0 rounded-2xl overflow-hidden border border-[var(--border-color)] aspect-[4/3] relative shadow-md cursor-pointer"
             onClick={() => setModalOpen(true)}
           >
             <Image

@@ -13,20 +13,20 @@ export default function IntroContainer() {
       </FadeIn>
       
       <FadeIn delay={150}>
-        <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter text-[var(--text-primary)] mb-4 leading-tight">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter text-[var(--text-primary)] mb-4 leading-tight">
           Mohamed Niyaz.
         </h1>
       </FadeIn>
 
       <FadeIn delay={300}>
-        <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight mb-8 max-w-4xl leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-secondary)] to-[var(--accent-light)] drop-shadow-sm">
+        <h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight mb-8 max-w-4xl leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-secondary)] to-[var(--accent-light)] drop-shadow-sm">
           Machine learning enthusiast
         </h2>
       </FadeIn>
 
       <FadeIn delay={450}>
         <div className="border-l-4 border-[var(--accent-light)] pl-6 mt-4">
-          <p className="text-lg md:text-2xl text-[var(--text-primary)] max-w-2xl leading-relaxed font-medium">
+          <p className="text-base md:text-2xl text-[var(--text-primary)] max-w-2xl leading-relaxed font-medium">
             Senior Engineer at <span className="font-bold text-[var(--accent-light)]">Presidio</span> blending machine learning with robust engineering. 
             Currently pursuing my M.Tech in AI/ML from <span className="font-bold text-[var(--accent-light)]">BITS Pilani</span>.
           </p>
